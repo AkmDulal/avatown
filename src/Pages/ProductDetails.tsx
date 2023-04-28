@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Row, Col } from 'react-bootstrap'
 import { Link, useParams } from 'react-router-dom'
-import { Tabs, Tooltip } from 'antd';
+import { Tabs } from 'antd';
 import OwlCarousel from 'react-owl-carousel';
 import { useSelector, useDispatch } from 'react-redux';
 import { cartActions } from '../ReduxService/Slice/CartSlice';
@@ -13,7 +13,7 @@ function ProductDetails() {
     const { id } = useParams();
     const { TabPane } = Tabs;
     const [isTruncated, setIsTruncated] = useState(true);
-    const [count, setCount] = useState<number>(0);
+    // const [count, setCount] = useState<number>(0);
     const productList = useSelector((state: any) => state.product.data);
     const qnty = useSelector((state: any) => state.cart.singleQuantity);
     console.log(qnty, "productList productList");
@@ -80,7 +80,7 @@ function ProductDetails() {
 
     useEffect(() => {
         detailsDataGet()
-    }, [dispatch, count]);
+    }, [dispatch]);
     console.log(detailsData);
     
     return (
